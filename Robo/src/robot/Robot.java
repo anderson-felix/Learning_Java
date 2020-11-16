@@ -67,5 +67,31 @@ public class Robot {
             this.orientacao = DIREITA;
         }
     }
+    
+    public float getPositionX(){
+        return positionX;
+    }
+    
+    public float getPositionY(){
+        return positionY;
+    }
+    
+    public float getOrientacao(){
+        return orientacao;
+    }
+    
+    @Override
+    public String toString() {
+        return "Robo{" + "posicaoX=" + positionX +", posicaoY=" + positionY + ", orientacao=" + orientacao + "}";
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Robo) {
+            Robot robo = (Robot)obj;
+            return this.nome.equals(robo.nome);
+        } else {
+            return false;
+        }
 
 }
