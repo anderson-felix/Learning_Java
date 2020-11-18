@@ -5,6 +5,12 @@ package simulador.code;
  * @author Anderson Felix
  */
 class CaixaIdeia {
+    protected int posX;
+    protected int posY;
+    private float peso;
+    private float comprimento;
+    private float largura;
+    private float altura;
 
   public int getPosX() {
     return this.posX;
@@ -54,12 +60,6 @@ class CaixaIdeia {
     this.altura = altura;
   }
 
-    protected int posX;
-    protected int posY;
-    private float peso;
-    private float comprimento;
-    private float largura;
-    private float altura;
 
     public CaixaIdeia(int posX, int posY, float peso, float comprimento, float largura, float altura) {
         this.setPosX(posX);
@@ -87,7 +87,7 @@ public class Caixa extends CaixaIdeia {
         return "Caixa{"+"nomeItem = " + nomeItem + ", qtdeItem = " + qtdeItem + "}";
     }
     public void status() {
-    System.out.println("_______CAIXA_______");
+    System.out.println("_________ROBOT INFO__________");
     System.out.println("Item : " + this.nomeItem);
     System.out.println("Quantidade : " + this.qtdeItem);
     System.out.println("Posição X : " + this.getPosX());

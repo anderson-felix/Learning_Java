@@ -41,8 +41,8 @@ public class Robo {
         System.out.println("Posição Y : " + this.positionY);
     }
 
-    public void printStatus() {
-        System.out.println("_________Info " + this.nome + "__________");
+    public void status() {
+        System.out.println("_________ROBOT INFO__________");
         System.out.println("Nome : " + this.nome);
         System.out.println("Peso : " + this.peso);
         System.out.println("Velovidade Max : " + this.velocidadeMax);
