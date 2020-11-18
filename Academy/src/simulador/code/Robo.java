@@ -1,15 +1,17 @@
-package robot;
+package simulador.code;
+
+import simulador.main.App;
 
 /**
  *
  * @author Anderson Felix
  */
-public class Robot {
+public class Robo {
     
     float positionX;
     float positionY;
     final String nome;
-    final double peso;
+    final float peso;
     final float velocidadeMax = 5;
     final float cargaMax = 20;
     final String tipoTracao = "esteira";
@@ -20,14 +22,14 @@ public class Robot {
     static final int ESQUERDA = 2;
     static final int DIREITA = 3;
 
-    public Robot(String nome, double peso) {
+    public Robo(String nome, float peso) {
         this.nome = nome;
         this.peso = peso;
         this.positionX = 50;
         this.positionY = 50;
     }
 
-    public Robot(String nome, double peso, float posX, float posY) {
+    public Robo(String nome, float peso, float posX, float posY) {
         this.nome = nome;
         this.peso = peso;
         this.positionX = posX;
@@ -87,11 +89,12 @@ public class Robot {
     
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Robo) {
-            Robot robo = (Robot)obj;
+        if (obj instanceof App) {
+            Robo robo = (Robo)obj;
             return this.nome.equals(robo.nome);
         } else {
             return false;
         }
+    }
 
 }

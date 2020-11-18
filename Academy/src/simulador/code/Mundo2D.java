@@ -1,10 +1,10 @@
-package robot;
+package simulador.code;
 
 /**
  *
  * @author Anderson Felix
  */
-public class mundo2D {
+public class Mundo2D {
     public int dimX;
     public int dimY;
     
