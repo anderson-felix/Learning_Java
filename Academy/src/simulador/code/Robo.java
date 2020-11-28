@@ -1,5 +1,7 @@
 package simulador.code;
 
+import java.util.HashMap;
+import java.util.Map;
 import simulador.main.App;
 
 /**
@@ -24,14 +26,36 @@ abstract class RoboIdeia {
 
 public class Robo extends RoboIdeia {
 
+  public enum Orientacao {
+    FRENTE(1), ATRAS(2), ESQUERDA(3), DIREITA(4);
+  
+    private final int value;
+    private final static Map map = new HashMap<>();
+    
+    private Orientacao(int value){
+      this.value = value;
+    }
+    
+    static {
+        for (Orientacao pageType : Orientacao.values()) {
+            map.put(pageType.value, pageType);
+        }
+    }
+
+    public static Orientacao valueOf(int pageType) {
+        return (Orientacao) map.get(pageType);
+    }
+
+    public int getValue() {
+        return value;
+    }
+    
+  };
+  
+
   final float velocidadeMax = 5;
   final float cargaMax = 20;
   final String tipoTracao = "esteira";
-
-  static final int FRENTE = 0;
-  static final int ATRAS = 1;
-  static final int ESQUERDA = 2;
-  static final int DIREITA = 3;
 
   public Robo(String nome, float peso) {
     super.nome = nome;
@@ -101,19 +125,21 @@ public class Robo extends RoboIdeia {
     super.positionY += dist;
   }
 
+  
+
   public void setOrientacao(char tecla) {
 
     if (tecla == 'w') {
-      super.orientacao = FRENTE;
+      super.orientacao = Orientacao.FRENTE.value;
       moveY(5);
     } else if (tecla == 's') {
-      super.orientacao = ATRAS;
+      super.orientacao = Orientacao.ATRAS.value;
       moveY(-5);
     } else if (tecla == 'a') {
-      super.orientacao = ESQUERDA;
+      super.orientacao = Orientacao.ESQUERDA.value;
       moveX(-5);
     } else if (tecla == 'd') {
-      super.orientacao = DIREITA;
+      super.orientacao = Orientacao.DIREITA.value;
       moveX(5);
     } else {
       throw new IllegalArgumentException("Arguments is not valid");
