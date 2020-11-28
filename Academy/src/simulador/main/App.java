@@ -1,3 +1,10 @@
+/**
+ *
+ * @author Anderson Felix
+ * @since 2020
+ * @version 1.0
+ *
+ */
 package simulador.main;
 
 import java.util.Scanner;
@@ -24,10 +31,16 @@ public class App {
 
     do {
       try {
-        tecla = scan.next().toLowerCase();
-        robo[0].setOrientacao(tecla.charAt(0));
-        robo[0].printPosition();
-      } catch (IllegalArgumentException ex) {
+        for (int i = 0; i < 5; i++) {
+          System.out.println();
+        }
+          System.out.println("\n\t ___ON___ \n");
+          robo[0].printPosition();
+          System.out.println("\n");
+          tecla = scan.next().toLowerCase();
+          robo[0].setOrientacao(tecla.charAt(0));
+          
+        }catch (IllegalArgumentException ex) {
         if (tecla.charAt(0) == '0') {
           ok = true;
         } else {
@@ -36,9 +49,11 @@ public class App {
           ok = false;
         }
       }
-    } while (!ok);
-    robo[0].status();
-    caixa[0].status();
+      }
+      while (!ok);
+      robo[0].status();
+      caixa[0].status();
+
+    }
 
   }
-}
