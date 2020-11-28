@@ -65,7 +65,6 @@ public class Inputs {
       for (int i = 0; i < 100; i++) {
         System.out.println();
       }
-      Runtime.getRuntime().exec("cls");
     }
   }
 
