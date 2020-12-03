@@ -28,35 +28,41 @@ public class Robo extends RoboIdeia {
 
   public enum Orientacao {
     FRENTE(1), ATRAS(2), ESQUERDA(3), DIREITA(4);
-  
+
     private final int value;
     private final static Map map = new HashMap<>();
-    
-    private Orientacao(int value){
+
+    private Orientacao(int value) {
       this.value = value;
     }
-    
+
     static {
-        for (Orientacao pageType : Orientacao.values()) {
-            map.put(pageType.value, pageType);
-        }
+      for (Orientacao pageType : Orientacao.values()) {
+        map.put(pageType.value, pageType);
+      }
     }
 
     public static Orientacao valueOf(int pageType) {
-        return (Orientacao) map.get(pageType);
+      return (Orientacao) map.get(pageType);
     }
 
     public int getValue() {
-        return value;
+      return value;
     }
-    
+
   };
-  
 
   final float velocidadeMax = 5;
   final float cargaMax = 20;
   final String tipoTracao = "esteira";
 
+  public Robo() {
+    super.nome = "Fluff";
+    this.peso = 19;
+    this.positionX = 50;
+    this.positionY = 50;
+  }
+  
   public Robo(String nome, float peso) {
     super.nome = nome;
     this.peso = peso;
@@ -125,8 +131,6 @@ public class Robo extends RoboIdeia {
     super.positionY += dist;
   }
 
-  
-
   public void setOrientacao(char tecla) {
 
     if (tecla == 'w') {
@@ -143,6 +147,15 @@ public class Robo extends RoboIdeia {
       moveX(5);
     } else {
       throw new IllegalArgumentException("Arguments is not valid");
+    }
+  }
+
+  public void movAgendados(String... moves) {
+    for (String tecla : moves) {
+      if (!tecla.equals("--move")) {
+        setOrientacao(tecla.charAt(0));
+        printPosition();
+      }
     }
   }
 
